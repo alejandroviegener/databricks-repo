@@ -10,8 +10,27 @@ resources:
         git_branch: feature/test-workflow
 
       tasks:
-        - task_key: python_script_1
+        - task_key: task_1
           existing_cluster_id: 0226-191955-8o3di0cu
           spark_python_task:
-            python_file: src/test.py
+            python_file: src/task_1.py
             source: GIT
+
+        - task_key: task_2
+          depends_on: 
+            - task_key: task_1
+          existing_cluster_id: 0226-191955-8o3di0cu
+          spark_python_task:
+            python_file: src/task_2.py
+            source: GIT
+
+        - task_key: task_3
+          depends_on: 
+            - task_key: task_1
+            - task_key: task_2
+          existing_cluster_id: 0226-191955-8o3di0cu
+          spark_python_task:
+            python_file: src/task_3.py
+            source: GIT
+
+        
