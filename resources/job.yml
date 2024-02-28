@@ -1,0 +1,17 @@
+# The main job for dab_example.
+resources:
+  jobs:
+    test_job:
+      name: test_job
+      description: "This is the job description, in this case a dummy job" 
+      git_source: 
+        git_url: https://github.com/alejandroviegener/databricks-repo.git
+        git_provider: github 
+        git_branch: feature/test-workflow
+
+      tasks:
+        - task_key: python_script_1
+          existing_cluster_id: 0226-191955-8o3di0cu
+          spark_python_task:
+            python_file: src/test.py
+            source: GIT

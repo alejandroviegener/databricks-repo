@@ -5,5 +5,5 @@ def multiply_by_2(number: int) -> int:
 
 
 # Run script
-print("This is just a test")
+print("This is just a test (TP1)")
 print(multiply_by_2(6))
